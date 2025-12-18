@@ -1,20 +1,18 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🎓 Skill Learning Buddy
 
-# Run and deploy your AI Studio app
+A React-based AI assistant designed to help you master new skills, powered by Google's Gemini API.
 
-This contains everything you need to run your app locally.
+## 🚀 Overview
 
-View your app in AI Studio: https://ai.studio/apps/drive/1dgK8_xidr1TmGyTBxt31W4ySjPnUTwDw
+Skill Learning Buddy is an interactive application that acts as your personal tutor. Whether you want to learn a new programming language, a musical instrument, or a soft skill, this AI companion helps structure your learning path, answer questions, and track progress.
 
-## Run Locally
+Built with:
+- **React** (via Vite)
+- **TypeScript**
+- **Google Generative AI SDK** (`@google/genai`)
 
-**Prerequisites:**  Node.js
+## ✨ Features
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- **Personalized Learning Plans**: AI-generated roadmaps tailored to your goals.
+- **Interactive Chat**: Ask questions and get instant, context-aware answers.
+- **Modern UI**: Clean and responsive interface built with React.
