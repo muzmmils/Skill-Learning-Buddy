@@ -48,13 +48,3 @@ export interface UserContext {
   background: string;
   profileUrl: string;
 }
-
-// Global interface for AI Studio embedded window object
-declare global {
-  // We augment the existing AIStudio interface to include the methods we need.
-  // The property 'aistudio' is already defined on Window with type 'AIStudio'.
-  interface AIStudio {
-    hasSelectedApiKey: () => Promise<boolean>;
-    openSelectKey: () => Promise<void>;
-  }
-}
