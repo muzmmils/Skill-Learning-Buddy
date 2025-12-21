@@ -103,7 +103,16 @@ After your analysis, provide the structured JSON learning plan.`;
             background: context.background || '',
             profileUrl: context.profileUrl || ''
         });
-        const resp = await fetch(`/api/plan/stream?${params.toString()}`);
+
+        // Allow overriding the API base URL in production (Netlify -> Render)
+        const apiBase = (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_API_URL)
+            || process.env.VITE_API_URL
+            || '';
+        const url = apiBase
+            ? `${apiBase.replace(/\/$/, '')}/api/plan/stream?${params.toString()}`
+            : `/api/plan/stream?${params.toString()}`;
+
+        const resp = await fetch(url);
         if (!resp.ok) {
             throw new Error(`Backend error: ${resp.status}`);
         }
