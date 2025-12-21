@@ -4,6 +4,8 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+    const apiUrl = env.VITE_API_URL || 'http://localhost:8787';
+    
     return {
       server: {
         port: 3000,
@@ -18,8 +20,21 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [react()],
       define: {
-        // Do not expose secrets to the client
-        'process.env.GEMINI_MODEL': JSON.stringify(env.GEMINI_MODEL)
+        // Expose non-sensitive env vars to client
+        'process.env.GEMINI_MODEL': JSON.stringify(env.GEMINI_MODEL),
+        'process.env.VITE_API_URL': JSON.stringify(apiUrl)
+      },
+      build: {
+        outDir: 'dist',
+        sourcemap: false, // Set to true for debugging in production
+        minify: 'terser',
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              vendor: ['react', 'react-dom'],
+            }
+          }
+        }
       },
       resolve: {
         alias: {

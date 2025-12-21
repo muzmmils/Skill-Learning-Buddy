@@ -6,6 +6,7 @@ import LearningPlanDisplay from './components/LearningPlanDisplay';
 import VisualStudio from './components/VisualStudio';
 import ExportPanel from './components/ExportPanel';
 import TimeCommitmentCalculator from './components/TimeCommitmentCalculator';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 import { generateLearningPlanStream } from './services/geminiService';
 import { COMMUNITY_HISTORY } from './services/mockHistory';
@@ -273,3 +274,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+

@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: skill-learning-buddy-api
+    env: node
+    plan: standard
+    buildCommand: npm install
+    startCommand: node server/index.js
+    healthCheckPath: /api/health
+    healthCheckInterval: 30
+    envVars:
+      - key: GEMINI_API_KEY
+        scope: run
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash
+      - key: PORT
+        value: 10000
