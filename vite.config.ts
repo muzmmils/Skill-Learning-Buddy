@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => {
       build: {
         outDir: 'dist',
         sourcemap: false, // Set to true for debugging in production
-        minify: 'terser',
+        minify: 'esbuild', // Use esbuild (built-in, faster than terser)
         rollupOptions: {
           output: {
             manualChunks: {
