@@ -148,11 +148,11 @@ Always respond with valid JSON matching this exact structure:
   ] (4-6 topics max)
 }`;
 
-  const contextInfo = background
-    ? `\n\nUser Background: ${background}${profileUrl ? `\nProfile/Portfolio: ${profileUrl}` : ''}`
-    : '';
+    const contextInfo = background
+      ? `\n\nUser Background: ${background}${profileUrl ? `\nProfile/Portfolio: ${profileUrl}` : ''}`
+      : '';
 
-  const userPrompt = `Create a comprehensive learning plan for the following goal:
+    const userPrompt = `Create a comprehensive learning plan for the following goal:
 
 "${goal}"${contextInfo}
 
@@ -166,7 +166,6 @@ Think through this step-by-step:
 
 After your analysis, provide the structured JSON learning plan.`;
 
-  try {
     const stream = await client.models.generateContentStream({
       model: getModel(),
       contents: SYSTEM_PROMPT + '\n\n' + userPrompt,
